@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --font-display: "Manrope", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-body: "Manrope", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --color-ink: #050505;
+  --color-accent: #ff832b;
+  --color-accent-strong: #ff5f2d;
+  --color-copy: rgba(255, 255, 255, 0.84);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top right, rgba(164, 77, 19, 0.28), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(112, 50, 10, 0.16), transparent 24%),
+    #050505;
+  color: white;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+}
+
+.page-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 124, 32, 0.08), transparent 16%, transparent 84%, rgba(255, 124, 32, 0.08)),
+    linear-gradient(180deg, rgba(255, 124, 32, 0.04), transparent 24%);
+  animation: glowPulse 9s ease-in-out infinite;
+}
+
+.page-orbit {
+  position: absolute;
+  width: 160vw;
+  height: 520px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 128, 40, 0.14);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.page-orbit::before,
+.page-orbit::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+}
+
+.page-orbit::before {
+  inset: 18px;
+  border: 2px solid rgba(255, 128, 40, 0.1);
+}
+
+.page-orbit::after {
+  inset: 42px;
+  border: 2px solid rgba(255, 128, 40, 0.08);
+}
+
+.page-orbit-left {
+  top: 110px;
+  left: -82vw;
+  transform: rotate(-11deg);
+  animation: orbitDriftLeft 16s ease-in-out infinite;
+}
+
+.page-orbit-right {
+  top: 180px;
+  right: -92vw;
+  transform: rotate(8deg);
+  animation: orbitDriftRight 18s ease-in-out infinite;
+}
+
+.service-backdrop {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.service-backdrop-left {
+  width: 70rem;
+  height: 70rem;
+  left: -28rem;
+  top: -8rem;
+  background: repeating-radial-gradient(circle, rgba(255, 132, 43, 0.08), rgba(255, 132, 43, 0.08) 2px, transparent 2px, transparent 26px);
+  mask-image: linear-gradient(90deg, black 0%, black 60%, transparent 100%);
+}
+
+.service-backdrop-right {
+  width: 46rem;
+  height: 46rem;
+  right: -10rem;
+  top: -8rem;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 65%);
+}
+
+.fade-up,
+.section-enter {
+  opacity: 0;
+  animation: fadeUp 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.12s;
+}
+
+.delay-2 {
+  animation-delay: 0.22s;
+}
+
+.float-card-1 {
+  animation: floatOne 8s ease-in-out infinite;
+}
+
+.float-card-2 {
+  animation: floatTwo 9s ease-in-out infinite;
+}
+
+.float-card-3 {
+  animation: floatThree 10s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes orbitDriftLeft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-11deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-9deg);
+  }
+}
+
+@keyframes orbitDriftRight {
+  0%,
+  100% {
+    transform: translateY(0) rotate(8deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(10deg);
+  }
+}
+
+@keyframes floatOne {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1deg);
+  }
+}
+
+@keyframes floatTwo {
+  0%,
+  100% {
+    transform: translateY(0) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+}
+
+@keyframes floatThree {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
