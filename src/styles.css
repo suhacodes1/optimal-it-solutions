@@ -24,6 +24,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top right, rgba(164, 77, 19, 0.28), transparent 28%),
     radial-gradient(circle at bottom left, rgba(112, 50, 10, 0.16), transparent 24%),
@@ -32,6 +33,12 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 12px;
+  }
 }
 
 a {

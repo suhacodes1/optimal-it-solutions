@@ -634,44 +634,44 @@ export default function App() {
       <div className="page-glow" />
 
       <header className="relative z-10 mx-auto max-w-[1700px] px-4 pb-12 pt-5 sm:px-6 lg:px-8">
-        <nav className="fade-up flex flex-col items-stretch justify-between gap-4 rounded-[2rem] border border-[rgba(121,87,64,0.58)] bg-[linear-gradient(180deg,rgba(31,31,31,0.96),rgba(26,26,26,0.94))] px-4 py-4 shadow-[0_16px_40px_rgba(0,0,0,0.28)] md:flex-row md:items-center md:px-6 md:py-5">
-          <div className="flex items-center gap-4">
+        <nav className="fade-up flex items-center justify-between rounded-[2rem] border border-[rgba(60,60,60,0.7)] bg-[rgba(18,18,18,0.96)] px-6 py-4 shadow-[0_16px_40px_rgba(0,0,0,0.36)]">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
             <div className="relative h-6 w-6 rounded-full border-[0.34rem] border-[var(--color-accent)] after:absolute after:inset-[0.22rem] after:rounded-full after:bg-white after:content-['']" />
             <div>
-              <p className="m-0 text-[clamp(1rem,1.2vw,1.35rem)] leading-[0.9] font-extrabold tracking-[-0.06em]">OPTIMAL</p>
-              <p className="m-0 text-[clamp(0.76rem,0.85vw,1rem)] leading-[0.9] tracking-[-0.07em]">IT SOLUTIONS</p>
+              <p className="m-0 text-[1.05rem] leading-[0.9] font-extrabold tracking-[-0.05em]">OPTIMAL</p>
+              <p className="m-0 text-[0.72rem] leading-[0.9] tracking-[-0.06em] text-white/70">IT SOLUTIONS</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2 rounded-[1.3rem] border border-[rgba(51,79,118,0.65)] bg-black/80 p-2">
+          {/* Nav links - center pill */}
+          <div className="hidden items-center gap-1 rounded-[1.2rem] border border-[rgba(60,60,60,0.8)] bg-[rgba(8,8,8,0.9)] px-2 py-2 md:flex">
             {navItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="px-4 py-3 text-white/85 transition duration-200 hover:-translate-y-0.5 hover:text-white"
+                className="rounded-[0.9rem] px-5 py-2.5 text-[0.9rem] text-white/80 transition duration-200 hover:bg-white/5 hover:text-white"
               >
                 {item}
               </a>
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 rounded-[1.3rem] border border-[rgba(51,79,118,0.65)] bg-black/80 p-2">
-            <span className="hidden text-white/85 md:inline">888-710-6350</span>
+          {/* Phone + CTA */}
+          <div className="flex items-center gap-4">
+            <span className="hidden text-[0.9rem] text-white/80 lg:inline">888-710-6350</span>
             <a
               href="#contact"
-              className="inline-flex min-h-[3.25rem] items-center justify-center rounded-2xl bg-[linear-gradient(135deg,var(--color-accent),var(--color-accent-strong))] px-6 py-3 font-bold text-white transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(255,110,36,0.22)]"
+              className="inline-flex items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--color-accent),var(--color-accent-strong))] px-5 py-2.5 text-[0.9rem] font-bold text-white transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(255,110,36,0.22)]"
             >
               Let&apos;s Connect
             </a>
           </div>
         </nav>
 
-        <section id="services" className="grid items-center gap-12 pt-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(420px,0.75fr)] lg:pt-16">
-          <div className="fade-up max-w-[980px]">
-            <p className="m-0 text-[0.82rem] font-bold tracking-[0.22em] text-[var(--color-accent)] uppercase">
-              {activeHeroData.eyebrow}
-            </p>
-            <h1 className="mt-5 max-w-[20ch] text-[clamp(2rem,3.2vw,3.35rem)] leading-[0.98] font-extrabold tracking-[-0.04em]">
+        <section id="services" className="grid items-center gap-8 pt-12 lg:grid-cols-[1fr_auto] lg:pt-20">
+          <div className="fade-up">
+            <h1 className="max-w-[18ch] text-[clamp(3rem,5.5vw,5.5rem)] leading-[0.92] font-extrabold tracking-[-0.03em]">
               {activeHero === "growth" ? (
                 <>
                   Digital Marketing- Growth
@@ -682,7 +682,7 @@ export default function App() {
                 activeHeroData.headline
               )}
             </h1>
-            <p className="mt-7 max-w-[24ch] text-[clamp(0.95rem,1.1vw,1.08rem)] leading-[1.35] text-[var(--color-copy)]">
+            <p className="mt-8 max-w-[52ch] text-[clamp(0.95rem,1.05vw,1.05rem)] leading-[1.55] text-white/70">
               {activeHeroData.text}
             </p>
 
@@ -695,11 +695,11 @@ export default function App() {
               </a>
             </div>
 
-            <div className="fade-up delay-2 mt-16">
-              <h2 className="m-0 text-[clamp(1.55rem,2vw,2rem)] leading-none font-extrabold tracking-[-0.03em]">
+            <div className="fade-up delay-2 mt-20">
+              <h2 className="m-0 text-[1.2rem] font-extrabold tracking-[-0.01em]">
                 Our Expertise
               </h2>
-              <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="mt-8 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
                 {expertiseItems.map((item, index) => (
                   <div
                     key={item.title}
@@ -707,9 +707,9 @@ export default function App() {
                     style={{ animationDelay: `${0.15 * (index + 1)}s` }}
                   >
                     <div className="inline-flex text-white">
-                      <ExpertiseIcon type={item.icon} />
+                      <ExpertiseIcon type={item.icon} className="h-14 w-14" />
                     </div>
-                    <p className="mt-5 text-[clamp(1rem,1.15vw,1.15rem)] leading-[1.1] tracking-[-0.03em]">
+                    <p className="mt-4 text-[1rem] font-medium leading-[1.2]">
                       {item.title}
                     </p>
                   </div>
@@ -718,50 +718,91 @@ export default function App() {
             </div>
           </div>
 
-          <div className={`fade-up delay-1 relative min-h-[340px] rounded-[2.4rem] bg-gradient-to-br ${activeHeroData.theme} sm:min-h-[420px] lg:min-h-[540px] xl:min-h-[760px]`}>
-            {phoneShowcase.map((phone) => (
-              <article
-                key={phone.title}
-                className={`absolute overflow-hidden rounded-[2rem] border border-white/8 bg-[#111] shadow-[0_30px_80px_rgba(0,0,0,0.48)] ${phone.position} ${phone.floatClass}`}
-              >
-                <img src={phone.image} alt={phone.title} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.54))]" />
-                <div className="absolute inset-x-[1.1rem] bottom-[1.2rem] z-10">
-                  <p className={`m-0 text-[clamp(1.1rem,1.45vw,1.55rem)] leading-[0.95] font-extrabold tracking-[-0.06em] ${phone.titleClass}`}>
-                    {phone.title}
-                  </p>
-                  <p className="mt-2 max-w-[8ch] text-[0.86rem] leading-[1.08]">{phone.subtitle}</p>
-                </div>
-              </article>
-            ))}
+          {/* Phone mockups matching Figma - 3 phones side by side with overlap */}
+          <div className="fade-up delay-1 relative hidden lg:block" style={{ width: "640px", height: "700px", flexShrink: 0 }}>
+            {/* Left phone - Travedia (leftmost, tallest) */}
+            <article className="absolute overflow-hidden rounded-[2.2rem] border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.65)]" style={{ width: "210px", height: "430px", left: 0, top: "40px", zIndex: 1 }}>
+              <img src={phoneShowcase[0].image} alt="Travedia" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.55))]" />
+              <div className="absolute inset-x-4 bottom-5 z-10">
+                <p className="text-[1.35rem] font-extrabold tracking-[-0.04em] text-[#e6ff38]">Travedia</p>
+                <p className="mt-1 text-[0.8rem] leading-[1.25] text-white/85">Menjelajah budaya<br />tanpa batas.</p>
+              </div>
+            </article>
+
+            {/* Center phone - Feed (tallest, most prominent) */}
+            <article className="absolute overflow-hidden rounded-[2.2rem] border border-white/10 bg-white shadow-[0_40px_100px_rgba(0,0,0,0.65)]" style={{ width: "210px", height: "500px", left: "195px", top: 0, zIndex: 2 }}>
+              <img src={phoneShowcase[1].image} alt="Feed" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.0),rgba(0,0,0,0.3))]" />
+              <div className="absolute inset-x-4 bottom-5 z-10">
+                <p className="text-[1.15rem] font-extrabold tracking-[-0.04em] text-white">Feed</p>
+                <p className="mt-1 text-[0.78rem] text-white/80">Other posts</p>
+              </div>
+            </article>
+
+            {/* Right phone - Barong (rightmost) */}
+            <article className="absolute overflow-hidden rounded-[2.2rem] border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.65)]" style={{ width: "210px", height: "440px", left: "390px", top: "30px", zIndex: 1 }}>
+              <img src={phoneShowcase[2].image} alt="Barong" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.52))]" />
+              <div className="absolute inset-x-4 bottom-5 z-10">
+                <p className="text-[1.15rem] font-extrabold tracking-[-0.04em] text-white">Barong</p>
+                <p className="mt-1 text-[0.78rem] text-white/80">Comments</p>
+              </div>
+            </article>
           </div>
         </section>
       </header>
 
-        <section aria-label="Companies" className="relative z-10 mx-auto -mt-3 max-w-[1780px] overflow-hidden border-y border-white/8 py-5">
-          <div className="marquee-track flex w-max items-center gap-9 text-white/70">
-            {[...companyMarquee, ...companyMarquee].map((company, index) => (
-              <span
-                key={`${company}-${index}`}
-                className="inline-flex min-w-max items-center gap-3 text-[0.9rem] font-bold uppercase tracking-[0.14em]"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
-                {company}
-              </span>
+        <section aria-label="Companies" className="relative z-10 mx-auto overflow-hidden border-y border-white/10 bg-[rgba(10,10,10,0.95)] py-6">
+          <div className="marquee-track flex w-max items-center gap-16">
+            {[...Array(2)].map((_, repeatIdx) => (
+              <div key={repeatIdx} className="flex items-center gap-16">
+                {/* Michaels */}
+                <div className="flex flex-col items-start opacity-80 hover:opacity-100 transition">
+                  <span className="font-serif text-[1.5rem] font-bold italic text-white leading-none">Michaels</span>
+                  <span className="text-[0.48rem] tracking-[0.18em] text-white/60 uppercase">Where Creativity Happens</span>
+                </div>
+                {/* Walmart */}
+                <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition">
+                  <span className="text-[1.4rem] font-extrabold text-white tracking-tight">Walmart</span>
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 text-[#ffc220]" fill="currentColor"><path d="M12 2l1.5 4.5L18 5l-3 3.5 2 4.5-5-2-5 2 2-4.5L6 5l4.5 1.5z"/></svg>
+                </div>
+                {/* WFMU */}
+                <div className="flex items-center gap-1 opacity-80 hover:opacity-100 transition">
+                  <div className="flex h-7 w-7 items-center justify-center rounded bg-white text-black text-[0.55rem] font-extrabold tracking-tight leading-none">W<br/>FM</div>
+                  <span className="text-[1.4rem] font-extrabold text-white tracking-tighter">U</span>
+                </div>
+                {/* Ray-Ban */}
+                <div className="opacity-80 hover:opacity-100 transition">
+                  <span className="font-serif text-[1.5rem] italic text-white font-bold tracking-wide">Ray·Ban</span>
+                </div>
+                {/* Converse */}
+                <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition">
+                  <svg viewBox="0 0 24 24" className="h-6 w-6 text-white" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20" strokeDasharray="2 2"/></svg>
+                  <span className="text-[1.3rem] font-extrabold text-white tracking-widest uppercase">CONVERSE</span>
+                </div>
+                {/* Tissot */}
+                <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition">
+                  <div className="flex h-7 w-7 items-center justify-center border-2 border-white rounded-sm">
+                    <span className="text-[0.5rem] font-extrabold text-white leading-none text-center">TI<br/>TO</span>
+                  </div>
+                  <span className="text-[1.3rem] font-extrabold text-white tracking-widest uppercase">TISSOT</span>
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="fade-up delay-1 relative mt-14 overflow-hidden border-y border-[rgba(255,131,43,0.14)] bg-[radial-gradient(circle_at_80%_20%,rgba(180,191,205,0.32),transparent_28%),linear-gradient(180deg,rgba(4,9,13,0.98),rgba(3,6,8,0.98))] px-4 py-14 shadow-[0_30px_80px_rgba(0,0,0,0.28)] sm:px-8 lg:py-18">
+        <section className="fade-up delay-1 relative mt-0 overflow-hidden border-y border-white/6 bg-[linear-gradient(180deg,rgba(10,10,14,0.99),rgba(14,14,22,0.99))] px-4 py-20 sm:px-8">
           <div className="mx-auto max-w-[1780px]">
-          <div className="mx-auto max-w-[980px] text-center">
-            <h2 className="text-[clamp(1.8rem,2.4vw,2.45rem)] leading-none font-extrabold tracking-[-0.02em]">Define Your Goals</h2>
-            <p className="mx-auto mt-7 max-w-[68ch] text-[clamp(1rem,1.12vw,1.1rem)] font-semibold leading-[1.28] text-white/92">
+          <div className="mx-auto max-w-[860px] text-center">
+            <h2 className="text-[clamp(2.4rem,4vw,4rem)] leading-[1.0] font-extrabold tracking-[-0.03em]">Define Your Goals</h2>
+            <p className="mx-auto mt-6 max-w-[68ch] text-[clamp(1rem,1.12vw,1.1rem)] leading-[1.55] text-white/70">
               Have a vision in mind? Share it with us. We’ll align the right technology, map out a clear path, and bring it to life step by step, with precision and purpose.
             </p>
           </div>
 
-          <div className="no-scrollbar mx-auto mt-18 max-w-[1240px] overflow-x-auto pb-4">
+          <div className="no-scrollbar mx-auto mt-14 max-w-[1240px] overflow-x-auto pb-4">
             <div className="relative grid min-w-[1080px] grid-cols-7 items-center px-8">
               <div className="absolute left-12 right-12 top-1/2 h-px -translate-y-1/2 bg-white/82" />
             {goalSteps.map((step) => {
@@ -841,7 +882,7 @@ export default function App() {
 
         <section id="about" className="fade-up mt-24">
           <div className="mx-auto max-w-[1260px] text-center">
-            <h2 className="text-[clamp(1.15rem,1.55vw,1.55rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">Core solutions that move your business forward</h2>
+            <h2 className="text-[clamp(1.8rem,2.8vw,3rem)] leading-[1.05] font-extrabold tracking-[-0.03em]">Core solutions that move your business forward</h2>
             <p className="mx-auto mt-5 max-w-[56ch] text-[clamp(0.78rem,0.9vw,0.9rem)] leading-[1.45] text-white/88">
               Our understanding begins with the clear concept that growth stems from doing things the right way. Our core solutions revolve around an accurate, built, and ready-to-scale model.
             </p>
@@ -875,8 +916,8 @@ export default function App() {
                 <p className="mb-5 text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                   {activeCoreData.label}
                 </p>
-                <h3 className="max-w-[9ch] text-[clamp(1.35rem,2vw,2.15rem)] leading-[0.92] font-medium tracking-[-0.04em]">{activeCoreData.title}</h3>
-                <p className="mt-6 max-w-[27ch] text-[clamp(0.78rem,0.9vw,0.9rem)] leading-[1.42] text-white/90">
+                <h3 className="max-w-[9ch] text-[clamp(2rem,3.5vw,3.5rem)] leading-[0.92] font-extrabold tracking-[-0.03em]">{activeCoreData.title}</h3>
+                <p className="mt-6 max-w-[32ch] text-[clamp(0.9rem,1vw,1rem)] leading-[1.55] text-white/85">
                   {activeCoreData.text}
                 </p>
                 <a href="#contact" className={`${glassButton} mt-8 min-w-[min(100%,21rem)] rounded-full border-white/35 bg-transparent`}>
@@ -900,7 +941,7 @@ export default function App() {
 
          <section className="fade-up delay-1 mt-20">
           <div className="max-w-[1180px]">
-            <h2 className="text-[clamp(1.15rem,1.55vw,1.55rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">Recognition for driving excellence</h2>
+            <h2 className="text-[clamp(1.8rem,2.8vw,2.8rem)] leading-[1.05] font-extrabold tracking-[-0.03em]">Recognition for driving excellence</h2>
             <p className="mt-5 max-w-[52ch] text-[clamp(0.78rem,0.9vw,0.9rem)] leading-[1.45] text-white/88">
               At Optimal IT Solutions, we are honored to be recognized for our relentless commitment to delivering cutting-edge solutions and exceptional service to our clients.
             </p>
@@ -926,7 +967,7 @@ export default function App() {
 
         <section className="mt-32 grid gap-16 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="fade-up">
-            <h2 className="max-w-[14ch] text-[clamp(1.15rem,1.55vw,1.55rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">AI-driven solutions for every stage of business</h2>
+            <h2 className="max-w-[14ch] text-[clamp(1.6rem,2.2vw,2.4rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">AI-driven solutions for every stage of business</h2>
             <p className="mt-6 max-w-[28ch] text-[clamp(0.78rem,0.9vw,0.9rem)] leading-[1.45] text-white/88">
               Just technology doesn’t solve problems. How you use it does. That’s why we involve AI in our solutions in practical ways that are aligned with your business model.
             </p>
@@ -1064,7 +1105,7 @@ export default function App() {
         <section className="mt-24">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
             <div className="fade-up">
-              <h2 className="text-[clamp(1.15rem,1.55vw,1.6rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">Industries We&apos;ve Made Impact In</h2>
+              <h2 className="text-[clamp(1.6rem,2.2vw,2.4rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">Industries We&apos;ve Made Impact In</h2>
               <div className="mt-8 flex flex-wrap gap-4">
                 {industries.map((industry) => (
                   <button
@@ -1111,7 +1152,7 @@ export default function App() {
         <section className="fade-up mt-24">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-[56rem]">
-              <h2 className="text-[clamp(1.15rem,1.55vw,1.6rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">
+              <h2 className="text-[clamp(1.6rem,2.2vw,2.4rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">
                 Testimonials that inspire us to work harder
               </h2>
               <p className="mt-5 max-w-[36ch] text-[clamp(0.78rem,0.9vw,0.9rem)] leading-[1.45] text-white/86">
@@ -1184,7 +1225,7 @@ export default function App() {
 
         <section id="contact" className="mt-24 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div className="fade-up pt-12">
-            <h2 className="max-w-[10ch] text-[clamp(1.2rem,1.65vw,1.7rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">Let&apos;s Build Something That Actually Works</h2>
+            <h2 className="max-w-[10ch] text-[clamp(1.6rem,2.2vw,2.4rem)] leading-[1.08] font-extrabold tracking-[-0.03em]">Let&apos;s Build Something That Actually Works</h2>
             <p className="mt-8 max-w-[18ch] text-[clamp(0.78rem,0.9vw,0.9rem)] leading-[1.42] text-white/88">
               We are here to help you move forward with clarity, whether you are starting from scratch or scaling what already exists.
             </p>
