@@ -346,10 +346,13 @@ export default function App() {
   const activeHeroData = useMemo(() => heroSlides.find((s) => s.id === activeHero) ?? heroSlides[0], [activeHero]);
   const activeService = useMemo(() => serviceTabs.find((t) => t.id === activeTab) ?? serviceTabs[0], [activeTab]);
   const activeGoalData = useMemo(() => goalSteps.find((s) => s.id === activeGoal) ?? goalSteps[0], [activeGoal]);
-  const visibleGoalCards = goalCards;
+  const visibleGoalCards = useMemo(() => {
+    if (activeGoal === "all") return goalCards;
+    return goalCards.filter((card) => card.step === activeGoal);
+  }, [activeGoal]);
   const visibleImpactCards = useMemo(() => impactCards.filter((c) => activeIndustry === "ecommerce" || c.industry === activeIndustry || activeIndustry === "all"), [activeIndustry]);
   const activeIndustryCopy = useMemo(() => industries.find((i) => i.id === activeIndustry)?.description ?? industries[0].description, [activeIndustry]);
-  const activeCoreData = useMemo(() => coreSolutions.find((s) => s.id === activeCore) ?? coreSolutions[0], [activeCore]);
+  const activeCoreData = useMemo(() => coreSolutions.find((s) => s.id === "automation") ?? coreSolutions[0], []);
 
   function scrollRow(ref, direction) {
     if (!ref.current) return;
@@ -412,7 +415,7 @@ export default function App() {
                 {expertiseItems.map((item, index) => (
                   <div key={item.title} className="opacity-0 [animation:fadeUp_0.8s_ease_forwards]" style={{ animationDelay: `${0.15 * (index + 1)}s` }}>
                     <div className="inline-flex text-white">
-                      <ExpertiseIcon type={item.icon} className="h-36 w-36" />
+                      <ExpertiseIcon type={item.icon} className="h-16 w-16 sm:h-20 sm:w-20" />
                     </div>
                     <p className="mt-2 text-[1.6rem] font-semibold leading-[1.2]">{item.title}</p>
                   </div>
@@ -577,16 +580,6 @@ export default function App() {
             Our understanding begins with the clear concept that growth stems from doing things the right way. Our core solutions revolve around an accurate, built, and ready-to-scale model.
           </p>
         </div>
-        <div className="mx-auto mt-8 flex max-w-[1060px] flex-wrap justify-center gap-3">
-          {coreSolutions.map((solution) => {
-            const active = activeCore === solution.id;
-            return (
-              <button key={solution.id} type="button" onClick={() => setActiveCore(solution.id)} className={`rounded-full border px-4 py-2.5 text-sm font-bold transition duration-300 ${active ? "border-[rgba(255,149,72,0.38)] bg-[var(--color-accent)] text-black shadow-[0_16px_32px_rgba(255,131,43,0.18)]" : "border-white/10 bg-[rgba(20,20,24,0.88)] text-white/72 hover:border-[rgba(255,131,43,0.28)] hover:text-white"}`}>
-                {solution.label}
-              </button>
-            );
-          })}
-        </div>
         <div className="relative mt-10 overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#272727]">
           <div className="absolute inset-y-0 left-0 w-1/2 bg-[linear-gradient(90deg,rgba(255,131,43,0.42),transparent_38%)]" />
           <div className="absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(270deg,rgba(255,131,43,0.24),transparent_26%)]" />
@@ -630,7 +623,7 @@ export default function App() {
         <img
           src={badge.logo}
           alt={badge.title}
-          className="h-28 w-auto object-contain sm:h-32 lg:h-40"
+          className="h-32 w-auto object-contain sm:h-40 lg:h-48"
         />
       </div>
     ))}
